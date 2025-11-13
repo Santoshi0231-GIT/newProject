@@ -6,6 +6,7 @@ import ProtectedRoutes from './component/protected/ProtectedRoutes'
 import Dashboard from './pages/dashboard/Dashboard'
 import NotFound from './pages/notFound/NotFound'
 import { useRoutes } from 'react-router-dom'
+import Analytics from './component/Sidebar/Analytics';
 
 
 const appRoutes=[
@@ -32,7 +33,8 @@ children:[
   {
     path:'/dashboard',
     element:<Dashboard/>
-  }
+  },
+  
 ]
   },
   {
