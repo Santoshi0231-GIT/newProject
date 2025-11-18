@@ -7,28 +7,55 @@ import { FcSalesPerformance } from 'react-icons/fc';
 import { FaRegEnvelope } from 'react-icons/fa';
 import { VscSettings } from 'react-icons/vsc';
 import { IoPersonAddSharp } from 'react-icons/io5';
-
+import logo from '../assets/style/logo.webp'
     import { MdOutlineInventory } from 'react-icons/md';
 import { CgShoppingBag } from 'react-icons/cg';
 
-const Sidebar = () => {
+
+const SideBar = () => {
+  const menuItems=[
+    {label:"Analytics",
+      icon:<GrAnalytics/>,
+      link:"/"
+    },
+    {
+      label:"Products",
+      icon:<AiOutlineProduct/>,
+      link:"/Products"
+    },
+     {label:"Offer",
+      icon:<BiSolidOffer/>,
+      link:"/Offer"
+    },
+     {label:"Inventory",
+      icon:<MdOutlineInventory/>,
+      link:"/Inventory"
+    },
+    { label: "Orders", icon: <CgShoppingBag />, link: "/Orders" },
+    { label: "Sales", icon: <FcSalesPerformance />, link: "/Sales" },
+    { label: "Customer", icon: <IoPersonAddSharp />, link: "/Customer" },
+    { label: "Newsletter", icon: <FaRegEnvelope />, link: "/Newsletter" },
+    { label: "Settings", icon: <VscSettings />, link: "/Settings" },
+  ];
   return (
  <>
- <div className='bg-gray-300 w-55 h-screen ml-0 text-xl '>
-    
-    <Link to= '/'className='flex flex-row gap-2 p-3'><GrAnalytics/>Analytics</Link>
-    <Link to='Products'className='flex flex-row gap-2  p-3'><AiOutlineProduct />Products</Link>
-    <Link to ='Offers'className='flex flex-row  gap-2 p-3'><BiSolidOffer />Offer</Link>
-    <Link to ='Inventory'className='flex flex-row  gap-2 p-3'><MdOutlineInventory />Inventory</Link>
-    <Link to ='Orders'className='flex flex-row  gap-2 p-3'><CgShoppingBag />Orders</Link>
-    <Link to ='Sales'className='flex flex-row  gap-2 p-3'><FcSalesPerformance/>Sales</Link>
-    <Link to ='Customer'className='flex flex-row gap-2 p-3'><IoPersonAddSharp/>Customer</Link>
-    <Link to= 'Newsletter'className='flex flex-row  gap-2 p-3'><FaRegEnvelope/>NewsLetter</Link>
-    <Link to ='Settings'className='flex flex-row  gap-2 p-3'><VscSettings />Settings</Link>
+<div className='bg-teal-100 flex flex-col w-64 gap-2 h-screen ml-0 mt-0 relative z-0'>
+
+  <h2 className='text-teal-700 text-3xl mb-3 mt-2  text-center font-bold'>Pixel Commerce</h2>
+  {menuItems.map((item)=>(
+    <Link 
+    key={item.label}
+    to={item.link}
+    className='flex items-center gap-3 p-3 rounded hover:bg-teal-200'>
+          {item.icon}
+          {item.label}
+    </Link>
+
+  ))}
 
 </div>
  </>
   )
 }
 
-export default Sidebar
+export default SideBar

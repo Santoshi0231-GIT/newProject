@@ -13,13 +13,13 @@ const stats = [
  },
 ];
 
-function Dashboardlayout() {
+function StatCard() {
   return (
 <>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white p-3 rounded-2xl shadow-sm flex items-center justify-between">
+          <div key={index} className="bg-white p-5 shadow-sm flex items-center justify-between">
             <div>
               <p className="text-sm text-teal-600">{stat.title}</p>
               <p className="text-2xl font-bold ">{stat.value}</p>
@@ -31,18 +31,9 @@ function Dashboardlayout() {
       </div>
 
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        
-        <div className="lg:col-span-1 bg-white p-6 rounded-2xl shadow-sm">
-          
-          
-          <div className="flex flex-col items-center justify-center h-48">
-              
-             
-          </div>
-        </div>
-      </div>
+       
+ 
 
       
       
@@ -51,4 +42,4 @@ function Dashboardlayout() {
   );
 }
 
-export default Dashboardlayout;
+export default StatCard;
