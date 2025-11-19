@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/authContext'
 import SideBar from '../../layout/Sidebar'
 import { IoIosLogOut } from 'react-icons/io'
-import StatCard from '../../layout/StatCard'
+import StatCard from '../../layout/Sub/StatCard'
 import Navbar from '../../layout/Navbar'
+import TopProduct from './../../layout/Sub/TopProduct';
+import Dashboardlayout from './../../layout/Dashboardlayout';
 
 const Dashboard = () => {
 
@@ -37,11 +39,11 @@ const Dashboard = () => {
    
 
       <div className='flex  gap-4 '>
-        <h1 className='text-2xl font-semibold text-gray-700'>Dashboard Overview</h1>
+        <h1 className='text-2xl font-semibold text-gray-700 mt-8'>Dashboard Overview</h1>
            <Navbar />
       </div>
     </div>
-        <StatCard/>
+     <  Dashboardlayout/>
        <div>
        <div className=''>
            <button

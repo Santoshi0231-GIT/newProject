@@ -5,8 +5,8 @@ import { IoSettingsOutline } from 'react-icons/io5'
 const Navbar = () => {
     
   return (
-    <div className=''>
-    <div className='w-full bg-white  shadow justify-center p-2 mt-2 ml-30 relative z-0 items-center flex' >
+    <div className='px-8 shadow-2xl ml-2 rounded-2xl items-center'>
+    <div className='  justify-center p-2 px-6 mt-2 ml-30 z-0 items-center flex rounded' >
 
         <input type="text"
         placeholder='Search..'
