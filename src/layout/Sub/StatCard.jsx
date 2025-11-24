@@ -1,15 +1,16 @@
 import React from 'react';
-import { MdDoNotDisturbOnTotalSilence } from "react-icons/md";
-import { FaFirstOrderAlt } from "react-icons/fa";
-import { AiOutlineCustomerService } from "react-icons/ai";
-import { CiDeliveryTruck } from "react-icons/ci";
+import { FaRegFileAlt } from 'react-icons/fa';
+import { IoPeople } from 'react-icons/io5';
+import { MdPeopleOutline } from 'react-icons/md';
+import { SlCalender } from 'react-icons/sl';
+
 
 
 const stats = [
-  { title: 'Total Revenue', value: '$82,650', trend: '3%', icon: <MdDoNotDisturbOnTotalSilence />},
-  { title: 'Total Order', value: '1645', trend: '12%', icon: <FaFirstOrderAlt /> },
-  { title: 'Total', value: '1,462', trend: '11%', icon: <AiOutlineCustomerService />},
-  { title: 'Pending Delivery', value: '117', trend: '8%', icon: <CiDeliveryTruck />
+  { title: 'Total Patients', value: '3', icon: <MdPeopleOutline/>},
+  { title: 'Total Appointments', value: '3', icon: <SlCalender /> },
+  { title: 'New Reports', value: '3',  icon: <FaRegFileAlt />},
+  { title: 'New Patients(30d)', value: '8',  icon: <IoPeople />
  },
 ];
 
@@ -20,12 +21,14 @@ function StatCard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white p-8 shadow-sm flex items-center justify-between rounded-2xl">
-            <div>
-              <p className="text-sm text-teal-600">{stat.title}</p>
-              <p className="text-2xl font-bold ">{stat.value}</p>
-              <span className="text-xs text-teal-600">{stat.trend}</span>
+            <div className='flex gap-4'>
+                  <span className="items-center rounded-full mt-2 text-2xl text-blue-700">{stat.icon}</span>
+                  <div className=''>
+              <p className="text-xl text-gray-800">{stat.title}</p>
+              <p className="text-2xl font-bold items-center">{stat.value}</p>
+           </div>
             </div>
-            <span className="text-3xl">{stat.icon}</span>
+        
           </div>
         ))}
       </div>
