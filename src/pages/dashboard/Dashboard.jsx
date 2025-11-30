@@ -38,7 +38,7 @@ const Dashboard = ({children}) => {
    
 
       <div className='flex  gap-4 '>
-        <h1 className='text-2xl font-semibold text-gray-700 mt-8'>Dashboard Overview</h1>
+        <h1 className='text-2xl font-semibold text-gray-700 '>Dashboard Overview</h1>
        
       </div>
     </div>

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaPlus } from 'react-icons/fa';
-
+import { FaBell } from 'react-icons/fa'
+import { MdDelete, MdModeEdit } from 'react-icons/md'
 const Staffs = () => {
-  const staffLists=[
-    {
+  const [staffLists,setStaff]=useState([
+    {id:Date.now()+Math.random(),
       name: "Dr. Suraj Thapa",
       role: "Cardiologist",
       department: "Cardiology",
@@ -11,7 +12,7 @@ const Staffs = () => {
       status: "Active",
       avatar: "https://ui-avatars.com/api/?name=Suraj+Thapa",
     },
-    {
+    {id:Date.now()+Math.random(),
       name: "Nisha Karki",
       role: "Nurse",
       department: "Emergency",
@@ -19,14 +20,14 @@ const Staffs = () => {
       status: "On Leave",
       avatar: "https://ui-avatars.com/api/?name=Nisha+Karki",
     },
-    {
+    {id:Date.now()+Math.random(),
       name: "Ravi Sharma",
       role: "Lab Technician",
       department: "Laboratory",
       contact: "9801122334",
       status: "Active",
       avatar: "https://ui-avatars.com/api/?name=Ravi+Sharma",
-    },{
+    },{id:Date.now()+Math.random(),
       name: "Anjali Rana",
       role: "Nurse",
       department: "ICU",
@@ -34,7 +35,12 @@ const Staffs = () => {
       status: "Active",
       avatar: "https://ui-avatars.com/api/?name=Anjali+Rana",
     },
-  ];
+  ]);
+  const handleDelete=(id)=>{
+    const updatedList=staffLists.filter(staff=>staff.id!==id)
+    setStaff(updatedList)
+  }
+
   return (
     <div className='flex-1 p-6 cursor-pointer bg-gray-100 min-h-screen rounded-lg'>
       <div className='flex justify-between mb-6 items-center'>
@@ -97,7 +103,11 @@ const Staffs = () => {
                     }`}>{staff.status}</span>
                   </td>
                   <td>
-                    <button className='bg-blue-500 text-white transition-all hover:bg-blue-700 rounded-lg px-4 py-1'>View Profile</button>
+                    <div className='flex p-2 text-xl text-blue-500'>
+                        <button className='mr-2 hover:text-blue-700 cursor-pointer '><MdModeEdit/></button>
+                          <button className='mr-2 hover:text-blue-700 cursor-pointer'onClick={()=>handleDelete(staff.id)}><MdDelete/></button>
+                          <button className='mr-2 hover:text-blue-700 cursor-pointer'><FaBell /></button>
+                        </div>
                   </td>
                 </tr>
               ))}

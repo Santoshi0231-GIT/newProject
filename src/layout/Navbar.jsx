@@ -1,22 +1,18 @@
 import React from 'react'
 import { HiOutlineBell, HiOutlineSearch } from 'react-icons/hi'
 import { IoSettingsOutline } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+  const navigate=useNavigate();
     
   return (
-    <div className='px-8 shadow-2xl mb-0 ml-2 rounded-2xl items-center bg-gray-100'>
-    <div className='  justify-center p-2 px-6 mt-2  z-0 items-center flex rounded' >
-
-        <input type="text"
-        placeholder='Search..'
-        className='border border-gray-300 rounded-2xl px-8 py-2' />
-          <div className="flex flex-row items-center gap-6 text-2xl m-4 text-gray-600">
-        <HiOutlineSearch />
-        <HiOutlineBell/>
-        <IoSettingsOutline/>
-      </div>
-    </div></div>
+  <div className='bg-gray-100 shadow-2xl mb-0 p-2'>
+     <div className='gap-2  px-2 py-2 text-blue-700'>
+    <button className='text-xl m-2 font-semibold hover:underline 'onClick={()=>navigate("/doc-category")}>Doctor </button>
+     <button className='text-xl m-2 font-semibold hover:underline'onClick={()=>navigate("/hos-category")}>Hospital </button>
+   </div>
+  </div>
   )
 }
 

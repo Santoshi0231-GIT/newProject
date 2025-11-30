@@ -30,9 +30,9 @@ const SideBar = () => {
     { label: "Lab Results", icon: <FaFlask />, link: "/LabResults" },
   
     { label: "Reports", icon: <FaRegFolderOpen />, link: "/Reports" },
-      {label:"Doctor",icon:<FaUserDoctor/>,link:"/doctors"},
+      {label:"Doctor",icon:<FaUserDoctor/>,link:"/doctor"},
     { label: "All Staffs", icon: <MdPeopleOutline />, link: "/Staffs" },
-    {label:"Settings",icon:<AiTwotoneSetting />,link:"/Settings"},
+ 
     {label:"Prescription",icon:<GiMedicines />}
   ];
 

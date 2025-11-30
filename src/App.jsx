@@ -10,21 +10,25 @@ import { useRoutes } from 'react-router-dom'
 import Analytics from './layout/Sub/Analytics'
 import Patients from './component/Sidebar/Patients';
 
-import Dashboard from './pages/dashboard/Dashboard';
+import Dashboard from './Pages/Dashboard/Dashboard'
 import Appointments from './component/Sidebar/Appointments';
 
 import LabResults from './component/Sidebar/LabResults';
 import Reports from './component/Sidebar/Reports';
 import Staffs from './component/Sidebar/Staffs';
-import Settings from './component/Sidebar/Settings';
+import Settings from './Navbar/Settings';
 import Doctor from './component/Sidebar/Doctor'
 import DoctorForm from './pages/Form/DoctorForm'
 import PatientForm from './pages/Form/PatientForm'
-import Doctors from './pages/Form/Doctors';
+// import Doctors from './pages/Form/Doctors';
+import AppointmentForm from './pages/Form/AppointmentForm';
+import Doctors from './component/Sidebar/Doctor'
+import DoctorCategoryPage from './Navbar/DoctorCategoryPage'
+import HospitalCategories from './Navbar/HospitalCategories';
 
 
 const appRoutes=[
-  //public routes
+  
   {
     path:'/',
     element:<Login/>
@@ -92,18 +96,18 @@ const appRoutes=[
         ]
       }
       ,{
-        path:'/doctors',
+        path:'/doctor',
         element:<ProtectedRoutes/>,
         children:[
           {index:true,element:<Doctor/>}
         ] },
-      //,{
-      //   path:'/add-doctor',
-      //   element:<ProtectedRoutes/>,
-      //   children:[
-      //     {index:true,element:<DoctorForm/>}
-      //   ]
-      // }
+      ,{
+        path:'/add-doctor',
+        element:<ProtectedRoutes/>,
+        children:[
+          {index:true,element:<DoctorForm/>}
+        ]
+      },
   {
         path:'/add-patient',
         element:<ProtectedRoutes/>,
@@ -116,6 +120,25 @@ const appRoutes=[
         element:<ProtectedRoutes/>,
         children:[
           {index:true,element:<Doctors/>}
+        ]
+      },
+       {
+        path:'/add-appointment',
+        element:<ProtectedRoutes/>,
+        children:[
+          {index:true,element:<AppointmentForm/>}
+        ]
+      },{
+        path:'/doc-category',
+        element:<ProtectedRoutes/>,
+        children:[
+          {index:true,element:<DoctorCategoryPage/>}
+        ]
+      },{
+        path:'/hos-category',
+        element:<ProtectedRoutes/>,
+        children:[
+          {index:true,element:<HospitalCategories/>}
         ]
       },
 
