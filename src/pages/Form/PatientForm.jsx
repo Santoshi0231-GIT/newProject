@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createPatient } from "../../services/patientsServices";
 
 const PatientForm = () => {
   const navigate = useNavigate();
@@ -20,7 +21,6 @@ const PatientForm = () => {
     });
   };
 
-  // ⭐ Auto-generate password (backend requires this)
   const generatePassword = () => {
     return "patient" + Math.floor(1000 + Math.random() * 9000);
   };
@@ -36,21 +36,7 @@ const PatientForm = () => {
     };
 
     try {
-      const response = await fetch(
-        "https://appoinment-system-backend-1.onrender.com/user/addUser",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      const result = await response.json();
-      console.log("Add patient response:", result);
-
+      const response = await createPatient(payload);
       if (response.ok) {
         alert("Patient added successfully!");
         navigate("/patients");
