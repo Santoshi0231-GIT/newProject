@@ -1,29 +1,38 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { getPatients } from "../../services/patientsServices";
+import { getPatients, deletePatientById } from "../../services/patientsServices";
 import { useNavigate } from "react-router-dom";
 
 const Patients = () => {
   const [patients, setPatients] = useState([]);
   const [error, setError] = useState("");
-const navigate = useNavigate();
-  const fetchPatients = async () => {
-    const token = Cookies.get("token");
-    if (!token) {
-      setError("No token found. Please log in.");
-      return;
-    }
 
+  const navigate = useNavigate();
+
+  const fetchPatients = async () => {
     try {
       const res = await getPatients(); 
-      setPatients(res.data.data || []);
+      setPatients(res|| []);
       setError("");
+
     } catch (err) {
       console.log(err);
       if (err.response?.status === 401) setError("Session expired. Please log in again.");
       else setError("Something went wrong while fetching patients.");
     }
   };
+
+  const deletePatient = async(id) =>{
+    try{
+      const select = await deletePatientById(id)
+      console.log(select)
+      // Refresh the patient list after successful deletion
+      fetchPatients();
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
     fetchPatients();
@@ -59,6 +68,9 @@ const navigate = useNavigate();
                 <td className="p-2 border">{p.userName}</td>
                 <td className="p-2 border">{p.email}</td>
                 <td className="p-2 border">{p.contactNumber}</td>
+                <td className="action p-2 border">
+                  <button onClick={() => deletePatient(p.id)}> del </button>
+                </td>
               </tr>
             ))
           )}
