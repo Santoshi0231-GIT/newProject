@@ -9,7 +9,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialAuthState);
   const apiUrl = import.meta.env.VITE_API_URL;
-  console.log("apiUrl", apiUrl)
 
   const axiosInstance = axios.create({
     baseURL: apiUrl,
@@ -21,9 +20,7 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: "LOGIN_START" });
     try {
       const { data } = await axiosInstance.post("/user/login", { email, password });
-    console.log("logged respioinse",data.payload)
       if (data) {
-
         Cookies.set("token", data.payload.accessToken, { expires: 7, secure: true });
         Cookies.set("user", JSON.stringify(data.payload.user), { expires: 7 });
 
